@@ -13,7 +13,7 @@ public class SOAPConnector extends WebServiceGatewaySupport {
         request.setIntA(a);
         request.setIntB(b);
         System.out.println();
-        System.out.println("Requesting forecast for " + a + " & " + b);
+        System.out.println("Requesting forecast for " + a + " + " + b);
         AddResponse response = (AddResponse) getWebServiceTemplate().marshalSendAndReceive(
                 request,
                 new SoapActionCallback(
@@ -26,7 +26,7 @@ public class SOAPConnector extends WebServiceGatewaySupport {
         request.setIntA(a);
         request.setIntB(b);
         System.out.println();
-        System.out.println("Requesting forecast for " + a + " & " + b);
+        System.out.println("Requesting forecast for " + a + " - " + b);
         SubtractResponse response = (SubtractResponse) getWebServiceTemplate().marshalSendAndReceive(
                 request,
                 new SoapActionCallback(
@@ -39,7 +39,7 @@ public class SOAPConnector extends WebServiceGatewaySupport {
         request.setIntA(a);
         request.setIntB(b);
         System.out.println();
-        System.out.println("Requesting forecast for " + a + " & " + b);
+        System.out.println("Requesting forecast for " + a + " / " + b);
         DivideResponse response = (DivideResponse) getWebServiceTemplate().marshalSendAndReceive(
                 request,
                 new SoapActionCallback(
@@ -54,7 +54,7 @@ public class SOAPConnector extends WebServiceGatewaySupport {
         }
         request.setIntB(b);
         System.out.println();
-        System.out.println("Requesting forecast for " + a + " & " + b);
+        System.out.println("Requesting forecast for " + a + " * " + b);
         MultiplyResponse response = (MultiplyResponse) getWebServiceTemplate().marshalSendAndReceive(
                 request,
                 new SoapActionCallback(
