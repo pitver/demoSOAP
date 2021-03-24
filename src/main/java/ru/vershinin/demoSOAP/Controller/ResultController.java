@@ -40,7 +40,7 @@ public class ResultController {
 
         AddResponse response;
         if (num1.matches(paternFormat) && (num2.matches(paternFormat))) {
-            response = resultService.add(Integer.valueOf(num1), Integer.parseInt(num2));
+            response = resultService.add(Integer.parseInt(num1), Integer.parseInt(num2));
         } else {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Invalid input");
@@ -64,7 +64,7 @@ public class ResultController {
         //  @PathVariable @NotBlank @Pattern(regexp = "\\d") int num2) {
         SubtractResponse response;
         if (num1.matches(paternFormat) && (num2.matches(paternFormat))) {
-            response = resultService.subtract(Integer.valueOf(num1), Integer.parseInt(num2));
+            response = resultService.subtract(Integer.parseInt(num1), Integer.parseInt(num2));
         } else {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Invalid input");
@@ -88,7 +88,7 @@ public class ResultController {
         //  @PathVariable @NotBlank @Pattern(regexp = "\\d") int num2) {
         MultiplyResponse response;
         if (num1.matches(paternFormat) && (num2.matches(paternFormat))) {
-            response = resultService.multiply(Integer.valueOf(num1), Integer.parseInt(num2));
+            response = resultService.multiply(Integer.parseInt(num1), Integer.parseInt(num2));
         } else {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Invalid input");
@@ -112,7 +112,7 @@ public class ResultController {
         //  @PathVariable @NotBlank @Pattern(regexp = "\\d") int num2) {
         DivideResponse response;
         if (num1.matches(paternFormat) && (num2.matches(paternFormat)) && Integer.parseInt(num2) != 0) {
-            response = resultService.division(Integer.valueOf(num1), Integer.parseInt(num2));
+            response = resultService.division(Integer.parseInt(num1), Integer.parseInt(num2));
         } else {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "Invalid input");

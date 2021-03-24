@@ -8,6 +8,18 @@
         <version>2.4.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.keycloak.bom</groupId>
+                <artifactId>keycloak-adapter-bom</artifactId>
+                <version>11.0.2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <groupId>ru.vershinin</groupId>
     <artifactId>demoSOAP</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -19,6 +31,25 @@
     </properties>
 
     <dependencies>
+
+        <!-- https://mvnrepository.com/artifact/io.fabric8/fabric8-maven-plugin -->
+        <dependency>
+            <groupId>io.fabric8</groupId>
+            <artifactId>fabric8-maven-plugin</artifactId>
+            <version>4.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.keycloak/keycloak-spring-boot-starter -->
+        <dependency>
+            <groupId>org.keycloak</groupId>
+            <artifactId>keycloak-spring-boot-starter</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <version>2.2.6.RELEASE</version>
+        </dependency>
 
 
         <dependency>
@@ -66,11 +97,13 @@
     </dependencies>
 
 
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.3</version>
             </plugin>
             <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
@@ -96,6 +129,13 @@
                         </schema>
                     </schemas>
                 </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>fabric8-maven-plugin</artifactId>
+                <version>4.4.1</version>
+
             </plugin>
         </plugins>
     </build>
