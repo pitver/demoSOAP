@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Message;
+import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Component
@@ -30,7 +31,7 @@ public class Sender {
             message.set(messagePostProcessor);
             return messagePostProcessor;
         });
-
+        message.get().setJMSMessageID(UUID.randomUUID().toString());
         String messageId = message.get().getJMSMessageID();
         LOGGER.info("sending OrderNumber='{}' with MessageId='{}'",
                 orderNumber, messageId);

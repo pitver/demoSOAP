@@ -20,6 +20,7 @@ import javax.jms.Destination;
 import javax.jms.JMSException;
 import javax.jms.Session;
 import javax.jms.TextMessage;
+import java.util.Random;
 import java.util.UUID;
 
 
@@ -78,13 +79,11 @@ public class ResultController {
     }
 
     @GetMapping("/getres")
-    public String subtraction(
+    public String getResult(
 
             @RequestParam(value = "correlationId", required = false, defaultValue = "1") String correlationId) {
 
-
         String status = sender.receiveOrderStatus(correlationId);
-        System.out.println(status);
 
         return status;
     }
@@ -162,9 +161,9 @@ public class ResultController {
         int res = response.getDivideResult();
         return getCorrelationId(res);
     }
-    @JmsListener(destination = "${destination.order}")
+    /*@JmsListener(destination = "${destination.order}")*/
     private String getCorrelationId(int res) throws JMSException {
-        String correlationId = sender.sendOrder(UUID.randomUUID().toString());
+        String correlationId = sender.sendOrder(String.valueOf(new Random().nextInt(1000000)));
 
 
         System.out.println(correlationId);
